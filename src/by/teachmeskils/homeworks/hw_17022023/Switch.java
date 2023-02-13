@@ -4,11 +4,11 @@ public class Switch {
     public static void main(String[] args) {
         int n = 8;
 
-        switch (n){
-            case 1, 8:
+        switch (n) {
+            case 1:
                 System.out.println("Сегодня понедельник");
                 break;
-            case 2, 9:
+            case 2:
                 System.out.println("Сегодня вторник");
                 break;
             case 3:

@@ -2,7 +2,7 @@ package by.teachmeskils.homeworks.hw_17022023;
 
 import java.util.Arrays;
 
-public class Massiv_2 {
+public class BubbleSort {
     public static void main(String[] args) {
 //        int[] randoms = new int[]{10, 2, 3, 4, 5, 11}; // иницилизация
 
