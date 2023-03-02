@@ -1,16 +1,10 @@
 package by.teachmeskils.homeworks.hw_03032023.transport;
 
-public abstract class Ground extends Transport {
-
-    public Ground(int power, int speedMax, int weight, String brand) {
-        super(power, speedMax, weight, brand);
-    }
-
+public class GroundTransport {
     private int numberWheels;
-    private int consumptionFuel;
+    protected static int consumptionFuel;
 
-    public Ground(int power, int speedMax, int weight, String brand, int numberWheels, int consumptionFuel) {
-        super(power, speedMax, weight, brand);
+    public GroundTransport(int numberWheels, int consumptionFuel) {
         this.numberWheels = numberWheels;
         this.consumptionFuel = consumptionFuel;
     }
@@ -31,8 +25,10 @@ public abstract class Ground extends Transport {
         this.consumptionFuel = consumptionFuel;
     }
 
-    protected abstract void numberWheels();
-
-    protected abstract void consumptionFuel();
+    protected void numberWheels() {
+        System.out.println("Количество установленных колес составляет - " + numberWheels + ";");
+    }
+    protected void consumptionFuel() {
+        System.out.println("Расход топлива - " + consumptionFuel + " литров / 100 км.;");
+    }
 }
-

@@ -1,26 +1,18 @@
 package by.teachmeskils.homeworks.hw_03032023.transport;
 
-public abstract class Transport {
+public class Transport {
 
-    private int power;
-    private int speedMax;
-    private int weight;
-    private boolean weightWt;
-    private String brand;
+    protected int power;
+    protected static int speedMax;
+    protected int weight;
+    protected boolean weightWt;
+    protected String brand;
 
-    protected Transport(int power, int speedMax, int weight, String brand) {
+    protected Transport(int power, int speedMax, String brand, int weight) {
         this.power = power;
         this.speedMax = speedMax;
-        this.weight = weight;
         this.brand = brand;
-    }
-
-    public boolean isWeightWt() {
-        return weightWt;
-    }
-
-    public void setWeightWt(boolean weightWt) {
-        this.weightWt = weightWt;
+        this.weight = weight;
     }
 
     public int getPower() {
@@ -47,6 +39,14 @@ public abstract class Transport {
         this.weight = weight;
     }
 
+    public boolean isWeightWt() {
+        return weightWt;
+    }
+
+    public void setWeightWt(boolean weightWt) {
+        this.weightWt = weightWt;
+    }
+
     public String getBrand() {
         return brand;
     }
@@ -55,16 +55,19 @@ public abstract class Transport {
         this.brand = brand;
     }
 
-    protected abstract void power();
-
-    protected abstract void speedMax();
-
-    protected abstract void weight();
-
-    protected abstract void brand();
-
     protected double powerWt() {
         double powerWt = power * 0.74;
         return powerWt;
+    }
+
+    protected void weight() {
+        System.out.println("Масса составляет - " + weight + " кг.;");
+    }
+
+    protected void power() {
+        System.out.println("Мощность - " + power + " лошадиных сил (" + powerWt() + " кВат.);");
+    }
+    protected void speedMax(){
+        System.out.println("Максимальная скорость составляет - " + speedMax + " км/ч.;");
     }
 }
