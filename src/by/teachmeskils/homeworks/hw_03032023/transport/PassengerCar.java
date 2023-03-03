@@ -1,12 +1,12 @@
 package by.teachmeskils.homeworks.hw_03032023.transport;
 
-public class PassengerCar {
+public class PassengerCar extends GroundTransport {
     private String typeBody;
     private int numberPassengersCar;
     private int time;
 
-
-    public PassengerCar(String typeBody, int numberPassengersCar, int time) {
+    public PassengerCar(int power, int speedMax, String brand, int weight, int numberWheels, int consumptionFuel, String typeBody, int numberPassengersCar, int time) {
+        super(power, speedMax, brand, weight, numberWheels, consumptionFuel);
         this.typeBody = typeBody;
         this.numberPassengersCar = numberPassengersCar;
         this.time = time;
@@ -29,12 +29,12 @@ public class PassengerCar {
     }
 
     protected double distance() {
-        double distance = Transport.speedMax * time;
+        double distance = speedMax * time;
         return distance;
     }
 
     protected double consumption() {
-        double consumption = distance() * GroundTransport.consumptionFuel / 100;
+        double consumption = distance() * consumptionFuel / 100;
         return consumption;
     }
 }

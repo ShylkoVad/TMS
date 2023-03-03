@@ -1,10 +1,11 @@
 package by.teachmeskils.homeworks.hw_03032023.transport;
 
-public class MilitaryAirplane {
+public class MilitaryAirplane extends AirTransport {
     private boolean ejection;
     private int numberRocket;
 
-    public MilitaryAirplane(boolean ejection, int numberRocket) {
+    public MilitaryAirplane(int power, int speedMax, String brand, int weight, double wingspan, int runwayMin, boolean ejection, int numberRocket) {
+        super(power, speedMax, brand, weight, wingspan, runwayMin);
         this.ejection = ejection;
         this.numberRocket = numberRocket;
     }

@@ -1,9 +1,16 @@
 package by.teachmeskils.homeworks.hw_03032023.transport;
 
-public class CivilAirplane {
+public class CivilAirplane extends AirTransport {
     private int numberPassengersCivilMax;
     private int numberPassengersCivil;
     private boolean businessClass;
+
+    public CivilAirplane(int power, int speedMax, String brand, int weight, double wingspan, int runwayMin, int numberPassengersCivilMax, int numberPassengersCivil, boolean businessClass) {
+        super(power, speedMax, brand, weight, wingspan, runwayMin);
+        this.numberPassengersCivilMax = numberPassengersCivilMax;
+        this.numberPassengersCivil = numberPassengersCivil;
+        this.businessClass = businessClass;
+    }
 
     public int getNumberPassengersCivilMax() {
         return numberPassengersCivilMax;
@@ -28,13 +35,6 @@ public class CivilAirplane {
     public void setBusinessClass(boolean businessClass) {
         this.businessClass = businessClass;
     }
-
-    public CivilAirplane(int numberPassengersCivilMax, int numberPassengersCivil, boolean businessClass) {
-        this.numberPassengersCivilMax = numberPassengersCivilMax;
-        this.numberPassengersCivil = numberPassengersCivil;
-        this.businessClass = businessClass;
-    }
-
 
     protected void setNumberPassengersCivil() {
         System.out.println("Максимальное количество пассажиров - " + numberPassengersCivilMax + " человек;");
