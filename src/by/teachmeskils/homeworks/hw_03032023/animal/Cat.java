@@ -17,11 +17,6 @@ public class Cat extends Feline {
     }
 
     @Override
-    protected void roam() {
-        System.out.println("Кошка гуляет в одиночестве");
-    }
-
-    @Override
     public String toString() {
         return "Cat{" +
                 "picture='" + picture + '\'' +

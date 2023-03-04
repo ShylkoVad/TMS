@@ -14,20 +14,7 @@ public class Transport {
         this.weight = weight;
     }
 
-    protected double powerWt() {
-        double convertPowerToWt = power * 0.74;
-        return convertPowerToWt;
-    }
-
-    protected void weight() {
-        System.out.println("Масса составляет - " + weight + " кг.;");
-    }
-
-    protected void power() {
-        System.out.println("Мощность - " + power + " лошадиных сил (" + powerWt() + " кВат.);");
-    }
-
-    protected void speedMax() {
-        System.out.println("Максимальная скорость составляет - " + speedMax + " км/ч.;");
+    protected double convertPowerToKw() {
+        return power * 0.74;
     }
 }

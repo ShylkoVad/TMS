@@ -9,11 +9,4 @@ public class AirTransport extends Transport {
         this.wingspan = wingspan;
         this.runwayMin = runwayMin;
     }
-
-    protected void wingspan() {
-        System.out.println("Размах крыльев - " + wingspan + " м.;");
-    }
-    protected void runwayMin() {
-        System.out.println("Минимальная длина взлетно-посадочной полосы - " + runwayMin + " м.;");
-    }
 }

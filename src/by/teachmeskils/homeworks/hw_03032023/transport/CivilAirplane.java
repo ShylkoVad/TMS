@@ -36,8 +36,7 @@ public class CivilAirplane extends AirTransport {
         this.businessClass = businessClass;
     }
 
-    protected void setNumberPassengersCivil() {
-        System.out.println("Максимальное количество пассажиров - " + numberPassengersCivilMax + " человек;");
+    public void setNumberPassengersCivil() {
         if (numberPassengersCivil <= numberPassengersCivilMax) {
             System.out.println("Число пасажиров " + numberPassengersCivil + " человек не привышает заявленые характеристики;");
         } else {
@@ -45,11 +44,27 @@ public class CivilAirplane extends AirTransport {
         }
     }
 
-    protected void businessClass() {
+    public void businessClass() {
         if (businessClass == true) {
             System.out.println("Есть наличие бизнес класса;");
         } else {
             System.out.println("Есть только эконом класс;");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "CivilAirplane{" +
+                "numberPassengersCivilMax=" + numberPassengersCivilMax +
+                ", numberPassengersCivil=" + numberPassengersCivil +
+                ", businessClass=" + businessClass +
+                ", wingspan=" + wingspan +
+                ", runwayMin=" + runwayMin +
+                ", power=" + power +
+                ", speedMax=" + speedMax +
+                ", weight=" + weight +
+                ", convertPowerToWt=" + convertPowerToKw() +
+                ", brand='" + brand + '\'' +
+                '}';
     }
 }

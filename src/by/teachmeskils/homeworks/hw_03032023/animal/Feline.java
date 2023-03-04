@@ -4,4 +4,9 @@ public abstract class Feline extends Animal {
     public Feline(String picture, String food, int hunger, Boundaries boundaries, Location location) {
         super(picture, food, hunger, boundaries, location);
     }
+
+    @Override
+    protected void roam() {
+        System.out.println("Гуляет в одиночестве");
+    }
 }

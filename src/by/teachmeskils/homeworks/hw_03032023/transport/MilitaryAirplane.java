@@ -26,19 +26,36 @@ public class MilitaryAirplane extends AirTransport {
         this.numberRocket = numberRocket;
     }
 
-    protected void ejection() {
+    public boolean ejection() {
         if (ejection == true) {
             System.out.println("Катапультирование прошло успешно;");
         } else {
             System.out.println("У Вас нет такой системы;");
         }
+        return ejection;
     }
 
-    protected void numberRocket() {
+    public int numberRocket() {
         if (numberRocket == 0) {
             System.out.println("Боеприпасы отсутствуют;");
         } else {
             System.out.println("Ракета пошла;");
         }
+        return numberRocket;
+    }
+
+    @Override
+    public String toString() {
+        return "MilitaryAirplane{" +
+                "ejection=" + ejection +
+                ", numberRocket=" + numberRocket +
+                ", wingspan=" + wingspan +
+                ", runwayMin=" + runwayMin +
+                ", power=" + power +
+                ", speedMax=" + speedMax +
+                ", weight=" + weight +
+                ", convertPowerToWt=" + convertPowerToKw() +
+                ", brand='" + brand + '\'' +
+                '}';
     }
 }

@@ -15,9 +15,4 @@ public class Tiger extends Feline {
     protected void eat() {
         System.out.println("Тигр принимает в пищу мясо");
     }
-
-    @Override
-    protected void roam() {
-        System.out.println("Тигр ходит один");
-    }
 }

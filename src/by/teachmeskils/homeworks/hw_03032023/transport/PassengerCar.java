@@ -20,21 +20,29 @@ public class PassengerCar extends GroundTransport {
         this.time = time;
     }
 
-    protected void typeBody() {
-        System.out.println("Тип кузова - " + typeBody + ";");
+    public double calculateDistance() {
+        return speedMax * time;
     }
 
-    protected void numberPassengersCar() {
-        System.out.println("Количество пассажиров - " + numberPassengersCar + " человек;");
+    private void calculateConsumption() {
+        double consumption = calculateDistance() * consumptionFuel / 100;
+        System.out.println("За время " + time + " ч, автомобиль " + brand + ", двигаясь с максимальной скоростью " + speedMax + " км/ч пройдет "
+                + calculateDistance() + " км и израсходует " + calculateDistance() * consumptionFuel / 100 + " литров топлива;");
     }
 
-    protected double distance() {
-        double distance = speedMax * time;
-        return distance;
-    }
-
-    protected double consumption() {
-        double consumption = distance() * consumptionFuel / 100;
-        return consumption;
+    @Override
+    public String toString() {
+        return "PassengerCar{" +
+                "typeBody='" + typeBody + '\'' +
+                ", numberPassengersCar=" + numberPassengersCar +
+                ", time=" + time +
+                ", numberWheels=" + numberWheels +
+                ", consumptionFuel=" + consumptionFuel +
+                ", power=" + power +
+                ", speedMax=" + speedMax +
+                ", weight=" + weight +
+                ", convertPowerToWt=" + convertPowerToKw() +
+                ", brand='" + brand + '\'' +
+                '}';
     }
 }

@@ -10,15 +10,26 @@ public class FreightCar extends GroundTransport {
         this.loadingWeight = loadingWeight;
     }
 
-    protected void loadCapacity() {
-        System.out.println("Грузоподъемность составляет - " + loadCapacity + " кг.;");
-    }
-
-    protected void loadingWeight() {
+    public void comparisonWeight() {
         if (loadCapacity >= loadingWeight) {
             System.out.println("Грузовик загружен");
         } else {
             System.out.println("Вам нужен грузовик побольше");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "FreightCar{" +
+                "loadCapacity=" + loadCapacity +
+                ", loadingWeight=" + loadingWeight +
+                ", numberWheels=" + numberWheels +
+                ", consumptionFuel=" + consumptionFuel +
+                ", power=" + power +
+                ", speedMax=" + speedMax +
+                ", weight=" + weight +
+                ", convertPowerToWt=" + convertPowerToKw() +
+                ", brand='" + brand + '\'' +
+                '}';
     }
 }

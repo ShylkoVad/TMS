@@ -14,9 +14,4 @@ public class Dog extends Canine {
     protected void eat() {
         System.out.println("Собака употребляет в рацион мясо и различный корм");
     }
-
-    @Override
-    protected void roam() {
-        System.out.println("Собока предпочитает стаю");
-    }
 }

@@ -15,9 +15,4 @@ public class Lion extends Feline {
     protected void eat() {
         System.out.println("Лев употребляет в рацион мясо");
     }
-
-    @Override
-    protected void roam() {
-        System.out.println("Лев бродит в одиночестве");
-    }
 }

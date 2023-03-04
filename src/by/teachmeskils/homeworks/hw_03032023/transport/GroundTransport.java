@@ -9,12 +9,4 @@ public class GroundTransport extends Transport {
         this.numberWheels = numberWheels;
         this.consumptionFuel = consumptionFuel;
     }
-
-    protected void numberWheels() {
-        System.out.println("Количество установленных колес составляет - " + numberWheels + ";");
-    }
-
-    protected void consumptionFuel() {
-        System.out.println("Расход топлива - " + consumptionFuel + " литров / 100 км.;");
-    }
 }

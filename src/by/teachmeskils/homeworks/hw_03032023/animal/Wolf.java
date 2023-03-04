@@ -15,9 +15,4 @@ public class Wolf extends Canine {
     protected void eat() {
         System.out.println("Волк употребляет в рацион мясо");
     }
-
-    @Override
-    protected void roam() {
-        System.out.println("Волк предпочитает стаю");
-    }
 }
