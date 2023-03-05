@@ -4,6 +4,7 @@ public class PassengerCar extends GroundTransport {
     private String typeBody;
     private int numberPassengersCar;
     private int time;
+    private double distance;
 
     public PassengerCar(int power, int speedMax, String brand, int weight, int numberWheels, int consumptionFuel, String typeBody, int numberPassengersCar, int time) {
         super(power, speedMax, brand, weight, numberWheels, consumptionFuel);
@@ -20,18 +21,20 @@ public class PassengerCar extends GroundTransport {
         this.time = time;
     }
 
-    public double calculateDistance() {
-        return speedMax * time;
+    public void calculateDistance() {
+        distance = speedMax * time;
+        calculateConsumption();
     }
 
     private void calculateConsumption() {
-        double consumption = calculateDistance() * consumptionFuel / 100;
-        System.out.println("За время " + time + " ч, автомобиль " + brand + ", двигаясь с максимальной скоростью " + speedMax + " км/ч пройдет "
-                + calculateDistance() + " км и израсходует " + calculateDistance() * consumptionFuel / 100 + " литров топлива;");
+        double consumption = distance * consumptionFuel / 100;
+        System.out.println("За время " + time + " ч, автомобиль " + brand + ", двигаясь с максимальной скоростью " + speedMax + " км/ч пройдет " +
+                distance + " км и израсходует " + consumption + " литров топлива;");
     }
 
     @Override
     public String toString() {
+        calculateDistance();
         return "PassengerCar{" +
                 "typeBody='" + typeBody + '\'' +
                 ", numberPassengersCar=" + numberPassengersCar +

@@ -44,7 +44,7 @@ public class CivilAirplane extends AirTransport {
         }
     }
 
-    public void businessClass() {
+    public void checkBusinessClass() {
         if (businessClass == true) {
             System.out.println("Есть наличие бизнес класса;");
         } else {
@@ -54,6 +54,8 @@ public class CivilAirplane extends AirTransport {
 
     @Override
     public String toString() {
+        setNumberPassengersCivil();
+        checkBusinessClass();
         return "CivilAirplane{" +
                 "numberPassengersCivilMax=" + numberPassengersCivilMax +
                 ", numberPassengersCivil=" + numberPassengersCivil +

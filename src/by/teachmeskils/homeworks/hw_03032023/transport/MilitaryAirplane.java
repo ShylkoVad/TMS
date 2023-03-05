@@ -26,7 +26,7 @@ public class MilitaryAirplane extends AirTransport {
         this.numberRocket = numberRocket;
     }
 
-    public boolean ejection() {
+    public boolean makeEjection() {
         if (ejection == true) {
             System.out.println("Катапультирование прошло успешно;");
         } else {
@@ -35,7 +35,7 @@ public class MilitaryAirplane extends AirTransport {
         return ejection;
     }
 
-    public int numberRocket() {
+    public int checkRocketsNumber() {
         if (numberRocket == 0) {
             System.out.println("Боеприпасы отсутствуют;");
         } else {
@@ -46,6 +46,8 @@ public class MilitaryAirplane extends AirTransport {
 
     @Override
     public String toString() {
+        makeEjection();
+        checkRocketsNumber();
         return "MilitaryAirplane{" +
                 "ejection=" + ejection +
                 ", numberRocket=" + numberRocket +

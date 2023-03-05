@@ -10,7 +10,7 @@ public class FreightCar extends GroundTransport {
         this.loadingWeight = loadingWeight;
     }
 
-    public void comparisonWeight() {
+    public void checkCapacity() {
         if (loadCapacity >= loadingWeight) {
             System.out.println("Грузовик загружен");
         } else {
@@ -20,6 +20,7 @@ public class FreightCar extends GroundTransport {
 
     @Override
     public String toString() {
+        checkCapacity();
         return "FreightCar{" +
                 "loadCapacity=" + loadCapacity +
                 ", loadingWeight=" + loadingWeight +

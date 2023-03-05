@@ -99,7 +99,6 @@ public class Bank {
         cardValidator.validateCardOwner();
         cardValidator.validateCardCvv();
         cardValidator.validateCardView();
-
     }
 }
 
