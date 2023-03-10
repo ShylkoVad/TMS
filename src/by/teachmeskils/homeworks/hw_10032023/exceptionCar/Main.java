@@ -10,15 +10,7 @@ public class Main {
         Car car3 = new Car("Skoda", 150, 9800);
         try {
             car1.start();
-        } catch (CustomException e) {
-            System.out.println(e.getMessage());
-        }
-        try {
             car2.start();
-        } catch (CustomException e) {
-            System.out.println(e.getMessage());
-        }
-        try {
             car3.start();
         } catch (CustomException e) {
             System.out.println(e.getMessage());

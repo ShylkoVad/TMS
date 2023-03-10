@@ -23,17 +23,16 @@ public class Shop {
     public void getAllProducts() throws EmptyProductListException {
         if (shop.isEmpty() == true) {
             throw new EmptyProductListException("No products found");
-        } else {
-            Comparator<Product> comparablePrice = Comparator.comparing(Product::getPrice);
-            Collections.sort(shop, comparablePrice.thenComparing(comparablePrice));
-            for (Product value : shop) {
-                System.out.println(value);
-            }
+        }
+        Comparator<Product> comparablePrice = Comparator.comparing(Product::getPrice);
+        Collections.sort(shop, comparablePrice.thenComparing(comparablePrice));
+        for (Product value : shop) {
+            System.out.println(value);
         }
     }
 
     public void removeProduct(int id) throws EmptyProductListException, EntityNotFoundException {
-        if (shop.isEmpty() == true) {
+        if (shop.isEmpty()) {
             throw new EmptyProductListException("No products found");
         } else {
             for (Product value : shop) {
@@ -47,7 +46,7 @@ public class Shop {
     }
 
     public void editProduct(int id, Product product) throws EmptyProductListException, EntityNotFoundException {
-        if (shop.isEmpty() == true) {
+        if (shop.isEmpty()) {
             throw new EmptyProductListException("No products found");
         } else {
             for (Product value : shop) {

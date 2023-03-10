@@ -44,8 +44,7 @@ public class Car {
         int randomStart = (int) (1 + Math.random() * 20); //рандомные числа от (0 до 20] - количество столбцов в строке
         if (randomStart % 2 == 0) {
             throw new CustomException("Автомобиль " + brand + " не завелся");
-        } else {
-            System.out.printf("Автомобиль %s завелся\n", brand);
         }
+        System.out.printf("Автомобиль %s завелся\n", brand);
     }
 }

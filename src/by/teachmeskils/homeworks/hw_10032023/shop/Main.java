@@ -9,7 +9,7 @@ public class Main {
 
         Shop shop = new Shop();
         Product product1 = new Product(1, "Chocolate", 10);
-        Product product2 = new Product(2, "Juice", 4);
+        Product product2 = new Product(1, "Juice", 4);
         Product product3 = new Product(3, "Fruits", 7);
 
         try {
@@ -25,12 +25,12 @@ public class Main {
             System.out.println(e.getMessage());
         }
         try {
-            shop.removeProduct(4);
+            shop.removeProduct(1);
         } catch (EmptyProductListException | EntityNotFoundException e) {
             System.out.println(e.getMessage());
         }
         try {
-            shop.editProduct(2, new Product(5, "Meat", 15));
+            shop.editProduct(5, new Product(5, "Meat", 15));
         } catch (EmptyProductListException | EntityNotFoundException e) {
             System.out.println(e.getMessage());
         }
