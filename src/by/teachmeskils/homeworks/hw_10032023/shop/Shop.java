@@ -21,7 +21,7 @@ public class Shop {
     }
 
     public void getAllProducts() throws EmptyProductListException {
-        if (shop.isEmpty() == true) {
+        if (shop.isEmpty()) {
             throw new EmptyProductListException("No products found");
         }
         Comparator<Product> comparablePrice = Comparator.comparing(Product::getPrice);
