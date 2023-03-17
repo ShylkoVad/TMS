@@ -20,7 +20,7 @@ public class Main {
                 String[] arrayText = strIntermediate.split("\\.");
 
                 for (String s : arrayText) {
-                    if (TextFormater.checkPalindromeString(s) | (TextFormater.returnNumberWords(s) >= 3 & TextFormater.returnNumberWords(s) <= 5)) {
+                    if (TextFormater.checkPalindromeString(s) || (TextFormater.returnNumberWords(s) >= 3 && TextFormater.returnNumberWords(s) <= 5)) {
                         bufferedWriter.write(s.trim() + "\n");
                         bufferedWriter.flush();
                     }

@@ -9,18 +9,16 @@ public class CensorshipUtil {
     private static String strBlackList;
     private static int quantity = 0;
 
-    private CensorshipUtil(String strOriginal, String strBlackList, int quantity) {
-        this.strOriginal = strOriginal;
-        this.strBlackList = strBlackList;
-        this.quantity = quantity;
+    private CensorshipUtil() {
     }
 
-    public static void checkTextCensorship(String str1, String str2) {
-        try (BufferedReader bfrBlackList = new BufferedReader(new FileReader(str2))) {
+    public static void checkTextCensorship(String firstFilePath, String secondFilePath) {
+        try (BufferedReader bfrBlackList = new BufferedReader(new FileReader(secondFilePath));) {
 
             while ((strBlackList = bfrBlackList.readLine()) != null) {
                 String[] arrayBlackList = strBlackList.split("\r\n");
-                BufferedReader bfrOriginal = new BufferedReader(new FileReader(str1));
+                BufferedReader bfrOriginal = new BufferedReader(new FileReader(firstFilePath));
+
                 for (String s1 : arrayBlackList) {
                     while ((strOriginal = bfrOriginal.readLine()) != null) {
                         String[] arrayText = strOriginal.split("\\.");
@@ -39,9 +37,9 @@ public class CensorshipUtil {
             } else {
                 System.out.println("Текст прошел проверку на цензуру");
             }
+
         } catch (IOException e) {
             System.out.println(e.getMessage());
-            throw new RuntimeException(e);
         }
     }
 }

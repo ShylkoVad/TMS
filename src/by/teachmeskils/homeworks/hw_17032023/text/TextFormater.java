@@ -1,6 +1,9 @@
 package by.teachmeskils.homeworks.hw_17032023.text;
 
 public class TextFormater {
+    private TextFormater() {
+    }
+
     static int returnNumberWords(String str) {
 
         String[] arrayText = str.split(" ");
