@@ -5,9 +5,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class PalindromeFile {
+    private static String FILE_ORIGINAL = "data\\hw_1703\\OriginalFile.txt";
+    private static String FILE_PALINDROME = "data\\hw_1703\\PalindromeFile.txt";
     public static void main(String[] args) throws IOException {
-        try (FileInputStream originalFile = new FileInputStream("data\\hw_1703\\OriginalFile.txt");
-             FileOutputStream palindromeFile = new FileOutputStream("data\\hw_1703\\PalindromeFile.txt")) {
+        try (FileInputStream originalFile = new FileInputStream(FILE_ORIGINAL);
+             FileOutputStream palindromeFile = new FileOutputStream(FILE_ORIGINAL)) {
             byte[] buffer = originalFile.readAllBytes();
             String str = new String(buffer);
             String[] arrayText = str.split("\r\n");

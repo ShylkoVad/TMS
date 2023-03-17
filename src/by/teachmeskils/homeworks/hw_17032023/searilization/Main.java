@@ -1,11 +1,15 @@
 package by.teachmeskils.homeworks.hw_17032023.searilization;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    private static final String FILE_NAME = "data\\hw_1703\\car.data";
+    private static String FILE_NAME = "data\\hw_1703\\car.data";
 
     public static void main(String[] args) {
         List<Car> cars = new ArrayList<>();

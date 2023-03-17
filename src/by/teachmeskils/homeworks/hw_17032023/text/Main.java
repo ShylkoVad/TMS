@@ -1,27 +1,29 @@
 package by.teachmeskils.homeworks.hw_17032023.text;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Main {
+    private static String FILE_ORIGINAL = "data\\hw_1703\\OriginalText.txt";
+    private static String FILE_FORMATER = "data\\hw_1703\\FormaterText.txt";
+
     public static void main(String[] args) {
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("data\\hw_1703\\OriginalText.txt"));
-             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("data\\hw_1703\\FormaterText.txt"));
-             BufferedWriter bufferedWriter1 = new BufferedWriter(new FileWriter("data\\hw_1703\\IntermediateText.txt"));
-             BufferedReader bufferedReader1 = new BufferedReader(new FileReader("data\\hw_1703\\IntermediateText.txt"))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(FILE_ORIGINAL));
+             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(FILE_FORMATER))) {
             String strIntermediate;
+
             while ((strIntermediate = bufferedReader.readLine()) != null) {
                 String[] arrayText = strIntermediate.split("\\.");
+
                 for (String s : arrayText) {
-                    bufferedWriter1.write(s + "\n");
-                    bufferedWriter1.flush();
-                }
-            }
-            String str;
-            while ((str = bufferedReader1.readLine()) != null) {
-                if (TextFormater.checkPalindromeString(str) | (TextFormater.returnNumberWords(str) >= 3 & TextFormater.returnNumberWords(str) <= 5)) {
-                    bufferedWriter.write(str + "\n");
-                    bufferedWriter.flush();
+                    if (TextFormater.checkPalindromeString(s) | (TextFormater.returnNumberWords(s) >= 3 & TextFormater.returnNumberWords(s) <= 5)) {
+                        bufferedWriter.write(s.trim() + "\n");
+                        bufferedWriter.flush();
+                    }
                 }
             }
         } catch (IOException e) {
