@@ -12,6 +12,6 @@ public class Main {
          f:\JAVA\TMS\Tasks\validationFile\documentMay.txt
     */
     public static void main(String[] args) {
-        Document.countWay(FILE_REPORT);
+        DocumentValidator.validate(FILE_REPORT);
     }
 }

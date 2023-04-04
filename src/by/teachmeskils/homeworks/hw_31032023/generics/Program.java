@@ -4,8 +4,8 @@ public class Program {
     public static void main(String[] args) {
 
         System.out.println(CalculatorUtils.sum(15, 10));
-        System.out.println(CalculatorUtils.difference(15, 10));
-        System.out.println(CalculatorUtils.divide(15, 10));
-        System.out.println(CalculatorUtils.multiply(15, 10));
+        System.out.println(CalculatorUtils.difference(15L, 10L));
+        System.out.println(CalculatorUtils.divide(1.5f, 1.8f));
+        System.out.println(CalculatorUtils.multiply(13.7, 7.8));
     }
 }

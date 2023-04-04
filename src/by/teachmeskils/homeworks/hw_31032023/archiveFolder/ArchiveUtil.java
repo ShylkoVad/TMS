@@ -9,23 +9,26 @@ import java.util.Arrays;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-public class ArchiveFolder {
+public class ArchiveUtil {
+    private static String FILE_WRITERS = "f:\\JAVA\\TMS\\Tasks\\archiveFolder\\Writers.txt";
+    private static String FILE_PAINTER = "f:\\JAVA\\TMS\\Tasks\\archiveFolder\\Painter.txt";
+    private static String FILE_MUSICIANS = "f:\\JAVA\\TMS\\Tasks\\archiveFolder\\Musicians.txt";
+    private static String FILE_ARCHIVE = "f:\\JAVA\\TMS\\Tasks\\archiveFolder\\archiveFolder.zip";
 
     public static void archive(String fileFolder, String fileNewFolder, String fileNameWriters, String fileNamePainter,
-                               String fileNameMusicians, String fileWriters, String filePainter, String fileMusicians,
-                               String fileArchive, String writers, String painter, String musicians) {
+                               String fileNameMusicians, String writers, String painter, String musicians) {
 
         File folder = new File(fileFolder);
         File folderNew = new File(fileNewFolder);
         folder.mkdir();
 
-        try (FileOutputStream fosWriters = new FileOutputStream(fileWriters);
-             FileOutputStream fosPainter = new FileOutputStream(filePainter);
-             FileOutputStream fosMusicians = new FileOutputStream(fileMusicians);
-             ZipOutputStream zout = new ZipOutputStream(new FileOutputStream(fileArchive));
-             FileInputStream fisWriters = new FileInputStream(fileWriters);
-             FileInputStream fisPainter = new FileInputStream(filePainter);
-             FileInputStream fisMusicians = new FileInputStream(fileMusicians)) {
+        try (FileOutputStream fosWriters = new FileOutputStream(FILE_WRITERS);
+             FileOutputStream fosPainter = new FileOutputStream(FILE_PAINTER);
+             FileOutputStream fosMusicians = new FileOutputStream(FILE_MUSICIANS);
+             ZipOutputStream zout = new ZipOutputStream(new FileOutputStream(FILE_ARCHIVE));
+             FileInputStream fisWriters = new FileInputStream(FILE_WRITERS);
+             FileInputStream fisPainter = new FileInputStream(FILE_PAINTER);
+             FileInputStream fisMusicians = new FileInputStream(FILE_MUSICIANS)) {
 
             PrintStream printStreamWriters = new PrintStream(fosWriters);
             PrintStream printStreamPainter = new PrintStream(fosPainter);
