@@ -14,12 +14,16 @@ public class ArchiveUtil {
     private static String FILE_PAINTER = "f:\\JAVA\\TMS\\Tasks\\archiveFolder\\Painter.txt";
     private static String FILE_MUSICIANS = "f:\\JAVA\\TMS\\Tasks\\archiveFolder\\Musicians.txt";
     private static String FILE_ARCHIVE = "f:\\JAVA\\TMS\\Tasks\\archiveFolder\\archiveFolder.zip";
+    private static String FILE_FOLDER = "f:\\JAVA\\TMS\\Tasks\\archiveFolder";
+    private static String FILE_NEW_FOLDER = "f:\\JAVA\\TMS\\Tasks\\archiveNewFolder";
+    private static String FILE_NAME_WRITERS = "Writers.txt";
+    private static String FILE_NAME_PAINTER = "Painter.txt";
+    private static String FILE_NAME_MUSICIANS = "Musicians.txt";
 
-    public static void archive(String fileFolder, String fileNewFolder, String fileNameWriters, String fileNamePainter,
-                               String fileNameMusicians, String writers, String painter, String musicians) {
+    public static void archive(String writers, String painter, String musicians) {
 
-        File folder = new File(fileFolder);
-        File folderNew = new File(fileNewFolder);
+        File folder = new File(FILE_FOLDER);
+        File folderNew = new File(FILE_NEW_FOLDER);
         folder.mkdir();
 
         try (FileOutputStream fosWriters = new FileOutputStream(FILE_WRITERS);
@@ -37,9 +41,9 @@ public class ArchiveUtil {
             printStreamPainter.println(painter);
             printStreamMusicians.println(musicians);
 
-            ZipEntry entryWriters = new ZipEntry(fileNameWriters);
-            ZipEntry entryPainter = new ZipEntry(fileNamePainter);
-            ZipEntry entryMusicians = new ZipEntry(fileNameMusicians);
+            ZipEntry entryWriters = new ZipEntry(FILE_NAME_WRITERS);
+            ZipEntry entryPainter = new ZipEntry(FILE_NAME_PAINTER);
+            ZipEntry entryMusicians = new ZipEntry(FILE_NAME_MUSICIANS);
 
             zout.putNextEntry(entryWriters);
             byte[] byfferWriters = new byte[fisWriters.available()];

@@ -4,13 +4,6 @@ public class Main {
 
     private static String FILE_REPORT = "f:\\JAVA\\TMS\\Tasks\\validationFile\\report.txt";
 
-    /*
-         f:\JAVA\TMS\Tasks\validationFile\documentApril.txt
-         f:\JAVA\TMS\Tasks\validationFile\documentFebruary.txt
-         f:\JAVA\TMS\Tasks\validationFile\documentJanuary.txt
-         f:\JAVA\TMS\Tasks\validationFile\documentMarch.txt
-         f:\JAVA\TMS\Tasks\validationFile\documentMay.txt
-    */
     public static void main(String[] args) {
         DocumentValidator.validate(FILE_REPORT);
     }
