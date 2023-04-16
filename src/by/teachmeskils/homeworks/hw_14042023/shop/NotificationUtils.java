@@ -14,8 +14,7 @@ public class NotificationUtils {
         String nameShop = "\"Мир одежды\"";
         RegistrationUtils.createUserFile();
 
-        LocalDate today = LocalDate.now(); // сегодняшняя дата
-//        LocalDate today = LocalDate.parse("2023-09-08");
+        LocalDate today = LocalDate.now();
 
         File fileUsers = new File(filePath);
 
@@ -39,13 +38,13 @@ public class NotificationUtils {
                 LocalDate dateStartDiscount = dateBirth.minusWeeks(1);
                 LocalDate dateEndDiscount = dateBirth.plusWeeks(1);
 
-                LocalDate dateSpringSale = LocalDate.parse("2000-05-01");
+                LocalDate dateSpringSale = LocalDate.parse("2023-05-01");
                 dateSpringSale = dateSpringSale.plusYears(today.getYear() - dateSpringSale.getYear());
-                LocalDate dateSummerSale = LocalDate.parse("2000-09-01");
+                LocalDate dateSummerSale = LocalDate.parse("2023-09-01");
                 dateSummerSale = dateSummerSale.plusYears(today.getYear() - dateSummerSale.getYear());
-                LocalDate dateAutumnSale = LocalDate.parse("2000-11-01");
+                LocalDate dateAutumnSale = LocalDate.parse("2023-11-01");
                 dateAutumnSale = dateAutumnSale.plusYears(today.getYear() - dateAutumnSale.getYear());
-                LocalDate dateWinterSale = LocalDate.parse("2000-02-01");
+                LocalDate dateWinterSale = LocalDate.parse("2023-02-01");
                 dateWinterSale = dateWinterSale.plusYears(today.getYear() - dateWinterSale.getYear());
 
                 if (today.isAfter(dateSpringSale) && today.isBefore(dateSummerSale)) {

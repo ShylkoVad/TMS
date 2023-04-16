@@ -15,25 +15,23 @@ public class RegistrationUtils {
     public static String phone;
     public static String gender;
     public static String exit;
-    static Scanner nameFull = new Scanner(System.in);
-    static Scanner dateBirth = new Scanner(System.in);
-    static Scanner phoneNumber = new Scanner(System.in);
-    static Scanner genderBuyers = new Scanner(System.in);
-    static Scanner exitCondition = new Scanner(System.in);
-    public static String FILE_USERS = "f:\\JAVA\\TMS\\Tasks\\hw_14042023\\users.txt";
+
+    private static Scanner stringInput = new Scanner(System.in);
+
+    public static final String FILE_USERS = "f:\\JAVA\\TMS\\Tasks\\hw_14042023\\users.txt";
 
     public static void readUserData() { // считывание данных о пользователи из консоли
         System.out.print("Введите ФИО покупателя: ");
-        name = nameFull.nextLine();
+        name = stringInput.nextLine();
         System.out.print("Введите Ваш пол (мужской/женский): ");
-        gender = genderBuyers.nextLine();
+        gender = stringInput.nextLine();
         System.out.print("Введите дату рождения покупателя (yyyy-MM-dd): ");
-        date = dateBirth.nextLine();
+        date = stringInput.nextLine();
         System.out.print("Введите номер телефона покупателя: ");
-        phone = phoneNumber.nextLine();
+        phone = stringInput.nextLine();
     }
 
-    public static boolean isValidData() {
+    public static boolean isValidDate() {
         date = date.trim();
         try {
             LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -77,21 +75,16 @@ public class RegistrationUtils {
         return false;
     }
 
-    public static boolean validateData() { // валидация данных
-
-        return isValidName() & isValidData() & isValidGender() & isValidPhone();
-    }
-
     public static void createUserFile() { // создание файла и запись в него
         File fileUsers = new File(FILE_USERS);
         try (BufferedWriter bufUsers = new BufferedWriter(new FileWriter(fileUsers))) {
             do {
                 System.out.print("Ввести нового покупателя? (да/нет): ");
-                exit = exitCondition.nextLine();
+                exit = stringInput.nextLine();
                 if (exit.equals("да")) {
                     readUserData();
                     System.out.println();
-                    if (validateData()) {
+                    if (isValidName() && isValidDate() && isValidGender() && isValidPhone()) {
                         bufUsers.write(name + "; ");
                         bufUsers.write(gender + "; ");
                         bufUsers.write(date + "; ");
