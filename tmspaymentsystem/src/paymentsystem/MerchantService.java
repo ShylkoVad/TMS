@@ -58,34 +58,26 @@ public class MerchantService implements FilesPathes {
 
     public BankAccount updateBankAccount(BankAccount bankAccount, String number) throws NoBankAccountsFoundException { // редактирование банковского аккаунта мерчанта (3)
         merchants.forEach(merchant -> {
-            BankAccount existing = merchant.getBankAccounts().stream().filter
-                    (a -> a.getAccountNumber().equals(bankAccount.getAccountNumber())).findFirst().orElse(null);
-            if (existing != null) {
-                existing.setAccountNumber(number);
-                temp = true;
-            }
+            BankAccount existing = merchant.getBankAccounts().stream().filter(a -> a.getAccountNumber().equals(bankAccount.getAccountNumber())).findFirst().
+                    orElseThrow(() -> throw new NoBankAccountsFoundException("Банковский аккаунт не найден"));
+            existing.setAccountNumber(number);
         });
-        if (!temp) {
-            throw new NoBankAccountsFoundException("Банковский аккаунт не найден");
-        } else {
-            temp = false;
-            try {
-                List<String> listExisting = Files.readAllLines(fileAccount);
-                List<String> newListExisting = new ArrayList<>();
-                for (String s : listExisting) {
-                    if (s.contains(bankAccount.getAccountNumber())) {
-                        String newString = s.replace(bankAccount.getAccountNumber(), number);
-                        newListExisting.add(newString);
-                    } else {
-                        newListExisting.add(s);
-                    }
+        try {
+            List<String> listExisting = Files.readAllLines(fileAccount);
+            List<String> newListExisting = new ArrayList<>();
+            for (String s : listExisting) {
+                if (s.contains(bankAccount.getAccountNumber())) {
+                    String newString = s.replace(bankAccount.getAccountNumber(), number);
+                    newListExisting.add(newString);
+                } else {
+                    newListExisting.add(s);
                 }
-                Files.delete(fileAccount);
-                Path newFile = Files.createFile(fileAccount);
-                Files.write(newFile, newListExisting);
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
             }
+            Files.delete(fileAccount);
+            Path newFile = Files.createFile(fileAccount);
+            Files.write(newFile, newListExisting);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
         return bankAccount;
     }

@@ -78,15 +78,12 @@ public class Menu {
                         System.out.print("Введите новый номер аккаунта: ");
                         String newIdScannerAccount = scanner.nextLine();
                         BankAccount tempBankAccount = new BankAccount(merchant.getId(), StatusAccount.ACTIVE, idScannerAccount, LocalDateTime.now());
-                        try {
-                            merchantService.updateBankAccount(tempBankAccount, newIdScannerAccount);
-                        } catch (NoBankAccountsFoundException e) {
-                            System.out.println(e.getMessage());
-                        }
-                    } catch (MerchantNotFoundException e) {
-                        throw new RuntimeException(e);
+                        merchantService.updateBankAccount(tempBankAccount, newIdScannerAccount);
+                    } catch (NoBankAccountsFoundException | MerchantNotFoundException e) {
+                        System.out.println(e.getMessage());
                     }
                 }
+
 
                 case "4" -> {
                     System.out.print("Введите id мерчента, о которого надо удалить аккаунт: ");
