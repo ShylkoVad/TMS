@@ -87,14 +87,14 @@ public class MerchantService implements FilesPathes {
         try {
             List<String> listExisting = Files.readAllLines(fileAccount);
             List<String> newListExisting = listExisting.stream().filter(line -> !line.contains(bankAccount.getAccountNumber())).toList();
+            if (!merchant.getBankAccounts().remove(bankAccount)) {
+                throw new BankAccountNotFoundException("Банковский аккаунт не был удален");
+            }
             Files.delete(fileAccount);
             Path newFile = Files.createFile(fileAccount);
             Files.write(newFile, newListExisting);
         } catch (IOException e) {
             System.out.println(e.getMessage());
-        }
-        if (!merchant.getBankAccounts().remove(bankAccount)) {
-            throw new BankAccountNotFoundException("Банковский аккаунт не был удален");
         }
         return true;
     }
@@ -126,6 +126,9 @@ public class MerchantService implements FilesPathes {
             List<String> listMerchant = Files.readAllLines(fileMerchant);
             List<String> newListAccount = listAccount.stream().filter(line -> !line.contains(idScanner)).toList();
             List<String> newListMerchant = listMerchant.stream().filter(line -> !line.contains(idScanner)).toList();
+            if (!merchants.remove(merchant)) {
+                throw new MerchantNotFoundException("Мерчант с id - " + idScanner + " не был удален");
+            }
             Files.delete(fileMerchant);
             Files.delete(fileAccount);
             Path newFileAccount = Files.createFile(fileAccount);
@@ -134,9 +137,6 @@ public class MerchantService implements FilesPathes {
             Files.write(newFileMerchant, newListMerchant);
         } catch (IOException e) {
             System.out.println(e.getMessage());
-        }
-        if (!merchants.remove(merchant)) {
-            throw new MerchantNotFoundException("Мерчант с id - " + idScanner + " не был удален");
         }
         return merchants.remove(merchant);
     }
