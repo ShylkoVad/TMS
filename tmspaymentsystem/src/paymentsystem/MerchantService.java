@@ -58,8 +58,13 @@ public class MerchantService implements FilesPathes {
 
     public BankAccount updateBankAccount(BankAccount bankAccount, String number) throws NoBankAccountsFoundException { // редактирование банковского аккаунта мерчанта (3)
         merchants.forEach(merchant -> {
-            BankAccount existing = merchant.getBankAccounts().stream().filter(a -> a.getAccountNumber().equals(bankAccount.getAccountNumber())).findFirst().
-                    orElseThrow(() -> throw new NoBankAccountsFoundException("Банковский аккаунт не найден"));
+            BankAccount existing;
+            try {
+                existing = merchant.getBankAccounts().stream().filter(a -> a.getAccountNumber().equals(bankAccount.getAccountNumber())).findFirst().
+                        orElseThrow(() ->  new NoBankAccountsFoundException("Банковский аккаунт не найден"));
+            } catch (NoBankAccountsFoundException e) {
+                throw new RuntimeException(e);
+            }
             existing.setAccountNumber(number);
         });
         try {
