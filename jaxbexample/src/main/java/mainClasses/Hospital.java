@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement (name = "hospital")
-//@XmlType (propOrder = {"doctor", "nurse"})
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Hospital {
     @XmlElement (name = "doctor")
