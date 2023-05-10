@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!--Простые элементы-->
+    <xs:simpleType name="stringtype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <!--Сложные элементы-->
+    <xs:complexType name="doctortype">
+        <xs:sequence>
+            <xs:element name="fullName" type="stringtype"/>
+            <xs:element name="jobTitle" type="stringtype"/>
+            <xs:element name="department" type="stringtype"/>
+            <xs:element name="workExperience" type="stringtype"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="nursetype">
+        <xs:sequence>
+            <xs:element name="fullName" type="stringtype"/>
+            <xs:element name="jobTitle" type="stringtype"/>
+            <xs:element name="department" type="stringtype"/>
+            <xs:element name="workExperience" type="stringtype"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="hospitaltype">
+        <xs:sequence>
+            <xs:element name="doctor" type="doctortype" maxOccurs="unbounded"/>
+            <xs:element name="nurse" type="nursetype" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="hospital" type="hospitaltype"/>
+
+</xs:schema>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<hospital>
+    <doctor>
+        <fullName>чумик Сергей Иванович</fullName>
+        <jobTitle>Заведующий отделением</jobTitle>
+        <department>Хирургическое отделений</department>
+        <workExperience>25 лет</workExperience>
+    </doctor>
+    <doctor>
+        <fullName>Садовская Елена Петровна</fullName>
+        <jobTitle>Офтальмолог</jobTitle>
+        <department>Глазное отделение</department>
+        <workExperience>5 лет</workExperience>
+    </doctor>
+    <doctor>
+        <fullName>Иванов Петр Сергеевич</fullName>
+        <jobTitle>Хирург</jobTitle>
+        <department>1-ое хирургическое отделение</department>
+        <workExperience>11 лет</workExperience>
+    </doctor>
+    <doctor>
+        <fullName>Климова Анастасия Александровна</fullName>
+        <jobTitle>Стоматолог-ортопед</jobTitle>
+        <department>Ортопедическое отделение</department>
+        <workExperience>15 лет</workExperience>
+    </doctor>
+    <nurse>
+        <fullName>Кирсанова Светлана Валерьевна</fullName>
+        <jobTitle>Старшая медсестра</jobTitle>
+        <department>1-ое хирургическое отделение</department>
+        <workExperience>14 лет</workExperience>
+    </nurse>
+    <nurse>
+        <fullName>Герасимчук Татьяна Валентиновна</fullName>
+        <jobTitle>Участковая медсестра</jobTitle>
+        <department>Детское отделение</department>
+        <workExperience>2 года</workExperience>
+    </nurse>
+    <nurse>
+        <fullName>Куликова Диана Аркадьевна</fullName>
+        <jobTitle>Операционная медсестра</jobTitle>
+        <department>2-ое педиатрическое отделение</department>
+        <workExperience>8 лет</workExperience>
+    </nurse>
+    <nurse>
+        <fullName>Литвинова Светлана Ивановна</fullName>
+        <jobTitle>Процедурная медсестра</jobTitle>
+        <department>Кардиологическое отделение</department>
+        <workExperience>1 год</workExperience>
+    </nurse>
+</hospital>
