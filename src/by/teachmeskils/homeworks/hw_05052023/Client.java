@@ -42,6 +42,6 @@ public class Client implements Callable<String> {
         enterShop();
         shopping();
         exitShop();
-        return null;
+        return "";
     }
 }
